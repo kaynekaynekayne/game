@@ -11,7 +11,7 @@ const gamesReducer=(state=initialState,action)=>{
         case "FETCH_GAMES":
             return {...state, 
                 popular:action.payload.popular,
-                upcoming:action.payload.upcoming,
+                upComing:action.payload.upComing,
                 newGames:action.payload.newGames,
             
             };
