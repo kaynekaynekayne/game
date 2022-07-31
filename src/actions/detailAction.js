@@ -3,8 +3,13 @@ import {gameDetailsURL, SCREENSHOT_URL} from '../api';
 
 const loadDetail=(id)=>async(dispatch)=>{
     
-    const detailData=await axios.get(gameDetailsURL(id))
-    const detailShots=await axios.get(SCREENSHOT_URL(id))
+    const detailData=await axios.get(gameDetailsURL(id));
+    const detailShots=await axios.get(SCREENSHOT_URL(id));
+ 
+    dispatch({
+        type:"LOADING_DETAIL"
+    })
+    
     dispatch({
         type:"GET_DETAIL",
         payload:{

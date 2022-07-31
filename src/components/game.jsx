@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components'; 
 import {motion} from 'framer-motion';
-
 import { useSelector, useDispatch } from 'react-redux';
 import loadDetail from '../actions/detailAction'
+import {Link} from 'react-router-dom';
 
 const Game = ({name, released, image, id}) => {
 
@@ -11,15 +11,17 @@ const Game = ({name, released, image, id}) => {
     const dd=useSelector(state=>state.detail.game);
     
     const loadDetailHander=()=>{
-        console.log(dd)
+        document.body.style.overflow="hidden";
         dispatch(loadDetail(id));
     };
 
     return(
         <StyledGame onClick={loadDetailHander}>
-            <h3>{name}</h3>
-            <p>{released}</p>
-            <img src={image} alt={name}/>
+            <Link to={`/game/${id}`}>
+                <h3>{name}</h3>
+                <p>{released}</p>
+                <img src={image} alt={name}/>
+            </Link>
         </StyledGame>
     )
 };
@@ -34,6 +36,7 @@ const StyledGame=styled(motion.div)`
         height:40vh;
         object-fit:cover;
     }
+    overflow:hidden;
     cursor:pointer;
 `
 
