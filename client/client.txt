@@ -1,0 +1,5 @@
+cd .. 밖에서
+npx create-react-app client
+
+안에서
+npm i react-router-dom
